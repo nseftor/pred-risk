@@ -1,2 +1,5 @@
-# pred-risk
-Using machine learning in R to create an early warning system of academic risk.
+# Predicting Academic Risk
+
+This repository contains web guides, R code, and sample data to help education 
+data analysts consider machine learning and predictive modeling techniques when 
+developing early warning indictors for students at risk of falling behind. 
