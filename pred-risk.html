@@ -1786,32 +1786,25 @@ for (j in factors) {
   mydata[[j]]&lt;-as.factor(mydata[[j]])
 }
 
-# Look at a summary of each of the variables.
+# Get rid of variables we do not need and look at a summary of each of the variables.
+mydata[,c(&quot;WKMOMED&quot;,&quot;WKDADED&quot;,&quot;P1HFAMIL&quot;,&quot;c5R4RTSC&quot;,&quot;C5R4MTSC&quot;,&quot;C5R4RTSC&quot;)]&lt;-list(NULL)
 summary(mydata)</code></pre>
-<pre><code>  MALE       WHITE       BLACK         HISP          WKMOMED     
- No :7085   No  :4395   No  :11714   No  :11236   Min.   :1.000  
- Yes:7289   Yes :9282   Yes : 1963   Yes : 2441   1st Qu.:3.000  
-            NA&#39;s: 697   NA&#39;s:  697   NA&#39;s:  697   Median :5.000  
-                                                  Mean   :4.317  
-                                                  3rd Qu.:5.000  
-                                                  Max.   :9.000  
-                                                  NA&#39;s   :823    
-    WKDADED       NONENG      BELOWPOV      DISABL         P1HFAMIL    
- Min.   :1.000   No  :11692   No  :11077   No  :10702   Min.   :1.000  
- 1st Qu.:3.000   Yes : 1969   Yes : 2666   Yes : 1667   1st Qu.:1.000  
- Median :5.000   NA&#39;s:  713   NA&#39;s:  631   NA&#39;s: 2005   Median :1.000  
- Mean   :4.489                                          Mean   :1.632  
- 3rd Qu.:6.000                                          3rd Qu.:2.000  
- Max.   :9.000                                          Max.   :5.000  
- NA&#39;s   :3126                                           NA&#39;s   :1991   
-      ARSL            ARSM           ARSG           READ1       
- Min.   :1.020   Min.   :1.00   Min.   :1.020   Min.   :0.0010  
- 1st Qu.:2.040   1st Qu.:1.99   1st Qu.:2.000   1st Qu.:0.4230  
- Median :2.480   Median :2.54   Median :2.460   Median :0.8280  
- Mean   :2.515   Mean   :2.59   Mean   :2.669   Mean   :0.6873  
- 3rd Qu.:2.980   3rd Qu.:3.12   3rd Qu.:3.405   3rd Qu.:0.9760  
- Max.   :4.740   Max.   :5.00   Max.   :4.920   Max.   :1.0000  
- NA&#39;s   :2425    NA&#39;s   :4577   NA&#39;s   :3999    NA&#39;s   :2417    
+<pre><code>  MALE       WHITE       BLACK         HISP        NONENG      BELOWPOV    
+ No :7085   No  :4395   No  :11714   No  :11236   No  :11692   No  :11077  
+ Yes:7289   Yes :9282   Yes : 1963   Yes : 2441   Yes : 1969   Yes : 2666  
+            NA&#39;s: 697   NA&#39;s:  697   NA&#39;s:  697   NA&#39;s:  713   NA&#39;s:  631  
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+  DISABL           ARSL            ARSM           ARSG           READ1       
+ No  :10702   Min.   :1.020   Min.   :1.00   Min.   :1.020   Min.   :0.0010  
+ Yes : 1667   1st Qu.:2.040   1st Qu.:1.99   1st Qu.:2.000   1st Qu.:0.4230  
+ NA&#39;s: 2005   Median :2.480   Median :2.54   Median :2.460   Median :0.8280  
+              Mean   :2.515   Mean   :2.59   Mean   :2.669   Mean   :0.6873  
+              3rd Qu.:2.980   3rd Qu.:3.12   3rd Qu.:3.405   3rd Qu.:0.9760  
+              Max.   :4.740   Max.   :5.00   Max.   :4.920   Max.   :1.0000  
+              NA&#39;s   :2425    NA&#39;s   :4577   NA&#39;s   :3999    NA&#39;s   :2417    
      READ2            READ3            READ4            MATH1       
  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0130  
  1st Qu.:0.0330   1st Qu.:0.0090   1st Qu.:0.0000   1st Qu.:0.9470  
@@ -1820,22 +1813,22 @@ summary(mydata)</code></pre>
  3rd Qu.:0.5890   3rd Qu.:0.2370   3rd Qu.:0.0060   3rd Qu.:0.9990  
  Max.   :1.0000   Max.   :1.0000   Max.   :0.9990   Max.   :1.0000  
  NA&#39;s   :2417     NA&#39;s   :2417     NA&#39;s   :2417     NA&#39;s   :1673    
-     MATH2            MATH3            MATH4           C5R4RTSC    
- Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :12.83  
- 1st Qu.:0.2160   1st Qu.:0.0070   1st Qu.:0.0000   1st Qu.:44.71  
- Median :0.6450   Median :0.0630   Median :0.0020   Median :51.06  
- Mean   :0.5696   Mean   :0.2255   Mean   :0.0399   Mean   :50.72  
- 3rd Qu.:0.9100   3rd Qu.:0.3490   3rd Qu.:0.0120   3rd Qu.:57.34  
- Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :83.59  
- NA&#39;s   :1673     NA&#39;s   :1673     NA&#39;s   :1673     NA&#39;s   :111    
-    C5R4MTSC     ATRISKM     ATRISKR       MLOED        DLOED      SINGPAR    
- Min.   :14.98   No :10780   No  :10706   No  :11743   No  :9788   No  :9871  
- 1st Qu.:43.87   Yes: 3594   Yes : 3557   Yes : 1808   Yes :1460   Yes :2512  
- Median :51.72               NA&#39;s:  111   NA&#39;s:  823   NA&#39;s:3126   NA&#39;s:1991  
- Mean   :50.69                                                                
- 3rd Qu.:57.52                                                                
- Max.   :83.72                                                                
-                                                                              </code></pre>
+     MATH2            MATH3            MATH4        ATRISKM     ATRISKR     
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   No :10780   No  :10706  
+ 1st Qu.:0.2160   1st Qu.:0.0070   1st Qu.:0.0000   Yes: 3594   Yes : 3557  
+ Median :0.6450   Median :0.0630   Median :0.0020               NA&#39;s:  111  
+ Mean   :0.5696   Mean   :0.2255   Mean   :0.0399                           
+ 3rd Qu.:0.9100   3rd Qu.:0.3490   3rd Qu.:0.0120                           
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000                           
+ NA&#39;s   :1673     NA&#39;s   :1673     NA&#39;s   :1673                             
+  MLOED        DLOED      SINGPAR    
+ No  :11743   No  :9788   No  :9871  
+ Yes : 1808   Yes :1460   Yes :2512  
+ NA&#39;s:  823   NA&#39;s:3126   NA&#39;s:1991  
+                                     
+                                     
+                                     
+                                     </code></pre>
 </div>
 <div id="missing-values" class="section level3">
 <h3>Missing values</h3>
@@ -1873,9 +1866,9 @@ mytest &lt;- mydata[-train_index, ]
 
 #Show dimensions of both datasets
 dim(mytrain)</code></pre>
-<pre><code>[1] 11500    28</code></pre>
+<pre><code>[1] 11500    23</code></pre>
 <pre class="r"><code>dim(mytest)</code></pre>
-<pre><code>[1] 2874   28</code></pre>
+<pre><code>[1] 2874   23</code></pre>
 </div>
 </div>
 <div id="using-rpart" class="section level2">
@@ -1935,11 +1928,11 @@ pred.base.train   No  Yes
 <p>This 2x2 table has many names, including confusion matrix and classification matrix. It is one way that machine learning models are evaluated. The No and Yes rows represent the values predicted by applying our model rules to the training data. The No and Yes columns represent the actual values observed in the training data. The table presents the four possible combinations.</p>
 <p>Two combinations describe students who were classified accurately:</p>
 <p>True Positives (TP): prediction = Yes and actual = Yes. These students were accurately identified as being at risk by our model.</p>
-<p>True Negatives (TN): prediction = No and actual = No. These students were accurately identified ass being not at risk by our model.</p>
+<p>True Negatives (TN): prediction = No and actual = No. These students were accurately identified as being not at risk by our model.</p>
 <p>Two combinations describe students who were not classified accurately:</p>
 <p>False Positives (FP): prediction = Yes and actual = No. These students were not at risk, but our model identified them as being at risk. This Type I error could be a problem if an intervention for at risk students is expensive and it is given to a lot of students who did not need it.</p>
 <p>False Negatives (FN): prediction = No and actual = Yes. These students were at risk, but our model did not identify them as being at risk. This Type II error may be more of a concern, because it indicates missing students who are in need of intervention.</p>
-<p>Our basic model identified about 40 percent <span class="math inline">\((1160/(1160+1716))\)</span> at risk students. It also had an overall accuracy of almost 81 percent <span class="math inline">\(((1160+8118)/(1160+1716+8118+506))\)</span>. However, consider that if we said that no students were at risk, our accuracy would be 75 percent.</p>
+<p>Our basic model identified about 40 percent (1160/(1160+1716)) at risk students. It also had an overall accuracy of almost 81 percent ((1160+8118)/(1160+1716+8118+506)). However, consider that if we said that no students were at risk, our accuracy would be 75 percent.</p>
 <p>We can also see how the model predictions would work for the test set. We can apply the rules from the model to our test data to generate predicted values for being at risk. Then, we can compare how the predictions based on the model’s decision rules compare to actual values.</p>
 <pre class="r"><code># Predict a class value for students in test set using rules from mytree1,
 # then compare the predictions to the actual values of at risk..

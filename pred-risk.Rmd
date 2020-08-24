@@ -277,7 +277,8 @@ for (j in factors) {
   mydata[[j]]<-as.factor(mydata[[j]])
 }
 
-# Look at a summary of each of the variables.
+# Get rid of variables we do not need and look at a summary of each of the variables.
+mydata[,c("WKMOMED","WKDADED","P1HFAMIL","c5R4RTSC","C5R4MTSC","C5R4RTSC")]<-list(NULL)
 summary(mydata)
 ```
 
@@ -438,7 +439,7 @@ True Positives (TP): prediction = Yes and actual = Yes. These students were accu
 identified as being at risk by our model.
 
 True Negatives (TN): prediction = No and actual = No. These students were accurately 
-identified ass being not at risk by our model.
+identified as being not at risk by our model.
 
 Two combinations describe students who were not classified accurately:
 
@@ -451,8 +452,8 @@ False Negatives (FN): prediction = No and actual = Yes. These students were at r
 our model did not identify them as being at risk. This Type II error may be more of
 a concern, because it indicates missing students who are in need of intervention.
 
-Our basic model identified about 40 percent $(1160/(1160+1716))$ at risk students. It also
-had an overall accuracy of almost 81 percent $((1160+8118)/(1160+1716+8118+506))$. However, 
+Our basic model identified about 40 percent (1160/(1160+1716)) at risk students. It also
+had an overall accuracy of almost 81 percent ((1160+8118)/(1160+1716+8118+506)). However, 
 consider that if we said that no students were at risk, our accuracy would be 75 percent.
 
 We can also see how the model predictions would work for the test set. We can apply the rules from
