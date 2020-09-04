@@ -1,0 +1,10 @@
+base
+knitr
+lattice
+ggplot2
+caret
+caTools
+dplyr
+rpart
+rpart.plot
+ROCR
